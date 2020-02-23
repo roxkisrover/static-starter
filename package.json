@@ -1,0 +1,66 @@
+{
+  "name": "gulp-starter",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "npm": ">=5",
+    "node": ">=10.16.0"
+  },
+  "scripts": {
+    "start": "gulp start",
+    "build": "gulp build",
+    "clean": "gulp clean",
+    "lint": "npm-run-all --parallel --continue-on-error lint:scripts lint:styles",
+    "lint:scripts": "eslint \"src/scripts/*.js\" --color --format stylish",
+    "fix:scripts": "eslint \"src/scripts/*.js\" --color --format stylish --fix",
+    "lint:styles": "stylelint \"src/styles/*.less\" --color --formatter verbose",
+    "fix:styles": "stylelint \"src/styles/*.less\" --color --formatter verbose --fix"
+  },
+  "lint-staged": {
+    "*.js": "eslint",
+    "*.less": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "browserslist": [
+    ">0.25%",
+    "not dead",
+    "not ie < 11",
+    "not op_mini all"
+  ],
+  "dependencies": {
+    "autoprefixer": "^9.7.4",
+    "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
+    "del": "^5.1.0",
+    "gulp": "4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-ejs-monster": "^3.2.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-less": "^4.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "normalize.css": "^8.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "npm-run-all": "^4.1.5",
+    "stylelint": "^13.2.0",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-declaration-use-variable": "^1.7.2",
+    "stylelint-order": "^4.0.0"
+  }
+}
